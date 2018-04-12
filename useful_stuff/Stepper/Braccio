@@ -46,13 +46,14 @@ def NormMode(Old , New):
                     sleep(delay)
                     GPIO.output(STEP, GPIO.LOW)
                     sleep(delay)
+                     
                     
 def main():
 ## CALIBRATION
     Error = 1
-    while (Joy[Manopola]!=-1):
+    while (data.ID=="z" && data.sttus==-1):
         
-    if Joy[Manopola] == -1:
+    if data.ID="z" && data.sttus=-1:
     
         for x in range(step_count):
             GPIO.output(STEP, GPIO.HIGH)
@@ -67,14 +68,15 @@ def main():
                 Error = 0
                 
 # Waiting command from Joystick 
-    while (!Error)  :       
-        Angle_new = 180*((Joy[Manopola]/2)+0.5) # --> Joy rage [-1,+1] ; Angle range [0,180]
+    while (!Error)  : 
+    if data.ID == "z" #id della manopola
+        Angle_new = 180*((data.status/2)+0.5) # --> Joy rage [-1,+1] ; Angle range [0,180]
                                                 # Joy=-1 --> angle=0 i.e. nitial position
         NormMode(Angle , Angle_new)
         
         Angle = Angle_new
         
-        if Joy[Manopola] > 1 | Joy[Manopola] < -1:
+        if data.ID="z" && (data.status > 1 | data.status < -1):
             Error = 1
             print ("Errore lettura Joystick\n")
         
